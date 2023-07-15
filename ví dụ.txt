@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int main() {
+  float a, b, c, x1, x2;
+  printf("Nhập a, b, c: ");
+  scanf("%f %f %f", &a, &b, &c);
+
+  if (a == 0) {
+    if (b == 0) {
+      if (c == 0) {
+        printf("Phương trình có vô số nghiệm.");
+      } else {
+        printf("Phương trình vô nghiệm.");
+      }
+    } else {
+      x1 = -c / b;
+      printf("Phương trình có nghiệm x = %f.", x1);
+    }
+  } else {
+    float delta = b * b - 4 * a * c;
+    if (delta > 0) {
+      x1 = (-b + sqrt(delta)) / (2 * a);
+      x2 = (-b - sqrt(delta)) / (2 * a);
+      printf("Phương trình có hai nghiệm x1 = %f và x2 = %f.", x1, x2);
+    } else if (delta == 0) {
+      x1 = -b / (2 * a);
+      printf("Phương trình có nghiệm kép x = %f.", x1);
+    } else {
+      printf("Phương trình vô nghiệm.");
+    }
+  }
+
+  return 0;
+}
